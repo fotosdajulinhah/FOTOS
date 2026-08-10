@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -95,7 +94,7 @@
             background: #000000;
         }
 
-        /* Capa exibida antes do play */
+        /* CAPA DO VÍDEO */
         .capa-video {
             position: absolute;
             inset: 0;
@@ -105,13 +104,16 @@
             align-items: center;
             justify-content: center;
             padding: 20px;
+
             background:
                 radial-gradient(
                     circle at center,
                     rgba(40, 40, 40, 0.82),
                     rgba(0, 0, 0, 0.98)
                 );
+
             cursor: pointer;
+
             transition:
                 opacity 0.25s ease,
                 visibility 0.25s ease;
@@ -127,49 +129,69 @@
             display: flex;
             align-items: center;
             justify-content: center;
+
             width: 78px;
             height: 78px;
+
             margin-bottom: 18px;
+
             border: 3px solid var(--branco);
             border-radius: 50%;
+
             background: var(--verde);
             color: var(--branco);
+
             font-size: 34px;
             line-height: 1;
+
             box-shadow:
                 0 0 0 8px rgba(22, 163, 74, 0.18),
                 0 12px 30px rgba(0, 0, 0, 0.5);
+
             animation: pulsarPlay 1.6s infinite;
         }
 
         .texto-capa {
             color: var(--branco);
+
             font-size: clamp(20px, 5vw, 27px);
             font-weight: 900;
+
             line-height: 1.1;
+
             text-transform: uppercase;
+
             text-shadow: 0 3px 10px #000000;
         }
 
+        /* CONTROLES */
         .controles {
             display: flex;
             align-items: center;
             justify-content: center;
+
             gap: 10px;
+
             padding: 9px;
+
             background: #111111;
         }
 
         .controle {
             min-width: 48px;
             height: 38px;
+
             padding: 0 12px;
+
             border: 1px solid #3a3a3a;
             border-radius: 7px;
+
             background: #1c1c1c;
             color: var(--branco);
+
             font-size: 16px;
             font-weight: 700;
+
             cursor: pointer;
         }
 
@@ -180,48 +202,79 @@
         .volume-container {
             display: flex;
             flex: 1;
+
             max-width: 150px;
+
             align-items: center;
         }
 
         .volume {
             width: 100%;
+
             cursor: pointer;
+
             accent-color: var(--verde);
         }
 
-        /*
-         * Área da oferta.
-         * O botão agora fica visível desde o início.
-         */
+        /* ÁREA DO BOTÃO */
         .area-oferta {
             min-height: 92px;
+
             margin-top: 13px;
         }
 
+        /* BOTÃO ESCONDIDO INICIALMENTE */
         .oferta {
+            opacity: 0;
+            visibility: hidden;
+
+            transform: translateY(10px);
+
+            pointer-events: none;
+
+            transition:
+                opacity 0.5s ease,
+                visibility 0.5s ease,
+                transform 0.5s ease;
+        }
+
+        /* BOTÃO APÓS 15 SEGUNDOS */
+        .oferta.visivel {
             opacity: 1;
             visibility: visible;
+
             transform: translateY(0);
+
             pointer-events: auto;
         }
 
         .botao-checkout {
             display: block;
+
             width: min(100%, 480px);
+
             margin: 0 auto;
+
             padding: 16px 14px;
+
             border-radius: 11px;
+
             background: var(--verde);
             color: var(--branco);
+
             font-size: clamp(18px, 4vw, 23px);
             font-weight: 900;
+
             line-height: 1.1;
+
             text-decoration: none;
+
             text-transform: uppercase;
+
             box-shadow:
                 0 0 0 5px rgba(22, 163, 74, 0.13),
                 0 12px 30px rgba(22, 163, 74, 0.36);
+
             animation: pulsarBotao 1.5s infinite;
         }
 
@@ -231,22 +284,30 @@
 
         .texto-seguranca {
             margin-top: 8px;
+
             color: var(--cinza);
+
             font-size: 12px;
         }
 
         .aviso {
             max-width: 570px;
+
             margin: 10px auto 0;
+
             color: #676767;
+
             font-size: 10px;
+
             line-height: 1.4;
         }
 
+        /* ANIMAÇÃO DO PLAY */
         @keyframes pulsarPlay {
             0%,
             100% {
                 transform: scale(1);
+
                 box-shadow:
                     0 0 0 7px rgba(22, 163, 74, 0.15),
                     0 12px 30px rgba(0, 0, 0, 0.5);
@@ -254,12 +315,14 @@
 
             50% {
                 transform: scale(1.08);
+
                 box-shadow:
                     0 0 0 14px rgba(22, 163, 74, 0.04),
                     0 15px 35px rgba(0, 0, 0, 0.6);
             }
         }
 
+        /* ANIMAÇÃO DO BOTÃO */
         @keyframes pulsarBotao {
             0%,
             100% {
@@ -275,7 +338,9 @@
             }
         }
 
+        /* CELULAR */
         @media (max-width: 480px) {
+
             body {
                 padding: 10px 10px 18px;
             }
@@ -301,7 +366,9 @@
             .play-grande {
                 width: 68px;
                 height: 68px;
+
                 margin-bottom: 14px;
+
                 font-size: 29px;
             }
 
@@ -311,21 +378,26 @@
 
             .area-oferta {
                 min-height: 82px;
+
                 margin-top: 10px;
             }
 
             .botao-checkout {
                 padding: 14px 11px;
+
                 font-size: 18px;
             }
 
             .aviso {
                 margin-top: 6px;
+
                 font-size: 9px;
             }
         }
 
+        /* CELULARES COM TELA BAIXA */
         @media (max-height: 700px) {
+
             .headline {
                 font-size: 16px;
             }
@@ -348,6 +420,7 @@
 
             .botao-checkout {
                 padding: 12px 10px;
+
                 font-size: 17px;
             }
         }
@@ -355,6 +428,7 @@
 </head>
 
 <body>
+
     <main class="container">
 
         <h1 class="headline">
@@ -376,11 +450,17 @@
                     controlslist="nodownload noplaybackrate nofullscreen"
                     disablepictureinpicture
                 >
-                    <source src="./video.mp4" type="video/mp4">
+
+                    <source
+                        src="./video.mp4"
+                        type="video/mp4"
+                    >
 
                     Seu navegador não conseguiu reproduzir o vídeo.
+
                 </video>
 
+                <!-- CAPA -->
                 <div
                     id="capa-video"
                     class="capa-video"
@@ -388,17 +468,23 @@
                     tabindex="0"
                     aria-label="Dar play para assistir ao vídeo"
                 >
+
                     <div class="play-grande">
                         ▶
                     </div>
 
                     <div class="texto-capa">
+
                         Dê play para<br>
                         assistir ao vídeo
+
                     </div>
+
                 </div>
 
             </div>
+
+            <!-- CONTROLES -->
 
             <div class="controles">
 
@@ -421,6 +507,7 @@
                 </button>
 
                 <div class="volume-container">
+
                     <input
                         id="volume"
                         class="volume"
@@ -430,17 +517,22 @@
                         value="80"
                         aria-label="Volume do vídeo"
                     >
+
                 </div>
 
             </div>
+
         </div>
 
-        <!-- BOTÃO VISÍVEL DESDE O INÍCIO -->
+        <!-- BOTÃO -->
+
         <div class="area-oferta">
+
             <div
                 id="oferta"
                 class="oferta"
             >
+
                 <a
                     class="botao-checkout"
                     href="https://go.pepperpay.com.br/equxv"
@@ -451,114 +543,284 @@
                 </a>
 
                 <p class="texto-seguranca"></p>
+
             </div>
+
         </div>
 
     </main>
 
+
     <script>
-        const video = document.getElementById("video-vsl");
-        const capaVideo = document.getElementById("capa-video");
-        const playPause = document.getElementById("play-pause");
-        const botaoSom = document.getElementById("som");
-        const controleVolume = document.getElementById("volume");
+
+        const video =
+            document.getElementById("video-vsl");
+
+        const capaVideo =
+            document.getElementById("capa-video");
+
+        const playPause =
+            document.getElementById("play-pause");
+
+        const botaoSom =
+            document.getElementById("som");
+
+        const controleVolume =
+            document.getElementById("volume");
+
+        const oferta =
+            document.getElementById("oferta");
+
+
+        /* ========================================
+           TEMPO PARA MOSTRAR O BOTÃO
+
+           15000 = 15 segundos
+           ======================================== */
+
+        const TEMPO_PARA_MOSTRAR_BOTAO = 15000;
+
 
         video.volume = 0.8;
 
+
+        /* REPRODUZIR VÍDEO */
+
         function reproduzirVideo() {
+
             video.play()
+
                 .then(function () {
+
                     capaVideo.classList.add("oculta");
+
                 })
+
                 .catch(function (erro) {
+
                     console.error(
                         "Não foi possível reproduzir o vídeo:",
                         erro
                     );
+
                 });
+
         }
+
+
+        /* PLAY / PAUSE */
 
         function alternarVideo() {
-            if (video.paused || video.ended) {
+
+            if (
+                video.paused ||
+                video.ended
+            ) {
+
                 reproduzirVideo();
+
             } else {
+
                 video.pause();
+
             }
+
         }
 
-        capaVideo.addEventListener("click", reproduzirVideo);
 
-        capaVideo.addEventListener("keydown", function (evento) {
-            if (
-                evento.key === "Enter" ||
-                evento.key === " "
-            ) {
-                evento.preventDefault();
-                reproduzirVideo();
-            }
-        });
+        /* CLIQUE NA CAPA */
 
-        video.addEventListener("click", alternarVideo);
+        capaVideo.addEventListener(
+            "click",
+            reproduzirVideo
+        );
 
-        playPause.addEventListener("click", alternarVideo);
 
-        video.addEventListener("play", function () {
-            playPause.textContent = "❚❚";
-            playPause.setAttribute(
-                "aria-label",
-                "Pausar vídeo"
-            );
+        /* TECLADO */
 
-            capaVideo.classList.add("oculta");
-        });
+        capaVideo.addEventListener(
+            "keydown",
+            function (evento) {
 
-        video.addEventListener("pause", function () {
-            playPause.textContent = "▶";
-            playPause.setAttribute(
-                "aria-label",
-                "Reproduzir vídeo"
-            );
-        });
+                if (
+                    evento.key === "Enter" ||
+                    evento.key === " "
+                ) {
 
-        video.addEventListener("ended", function () {
-            playPause.textContent = "▶";
-            video.currentTime = 0;
-            capaVideo.classList.remove("oculta");
-        });
+                    evento.preventDefault();
 
-        botaoSom.addEventListener("click", function () {
-            video.muted = !video.muted;
+                    reproduzirVideo();
 
-            if (video.muted) {
-                botaoSom.textContent = "🔇";
-                botaoSom.setAttribute(
-                    "aria-label",
-                    "Ativar som"
-                );
-            } else {
-                botaoSom.textContent = "🔊";
-                botaoSom.setAttribute(
-                    "aria-label",
-                    "Desativar som"
-                );
-
-                if (Number(controleVolume.value) === 0) {
-                    controleVolume.value = "80";
-                    video.volume = 0.8;
                 }
+
             }
-        });
+        );
 
-        controleVolume.addEventListener("input", function () {
-            const valor = Number(controleVolume.value);
 
-            video.volume = valor / 100;
-            video.muted = valor === 0;
+        /* CLIQUE NO VÍDEO */
 
-            botaoSom.textContent =
-                valor === 0 ? "🔇" : "🔊";
-        });
+        video.addEventListener(
+            "click",
+            alternarVideo
+        );
+
+
+        /* BOTÃO PLAY/PAUSE */
+
+        playPause.addEventListener(
+            "click",
+            alternarVideo
+        );
+
+
+        /* QUANDO O VÍDEO COMEÇA */
+
+        video.addEventListener(
+            "play",
+            function () {
+
+                playPause.textContent = "❚❚";
+
+                playPause.setAttribute(
+                    "aria-label",
+                    "Pausar vídeo"
+                );
+
+                capaVideo.classList.add(
+                    "oculta"
+                );
+
+            }
+        );
+
+
+        /* QUANDO PAUSA */
+
+        video.addEventListener(
+            "pause",
+            function () {
+
+                playPause.textContent = "▶";
+
+                playPause.setAttribute(
+                    "aria-label",
+                    "Reproduzir vídeo"
+                );
+
+            }
+        );
+
+
+        /* QUANDO TERMINA */
+
+        video.addEventListener(
+            "ended",
+            function () {
+
+                playPause.textContent = "▶";
+
+                video.currentTime = 0;
+
+                capaVideo.classList.remove(
+                    "oculta"
+                );
+
+            }
+        );
+
+
+        /* BOTÃO DE SOM */
+
+        botaoSom.addEventListener(
+            "click",
+            function () {
+
+                video.muted =
+                    !video.muted;
+
+
+                if (video.muted) {
+
+                    botaoSom.textContent = "🔇";
+
+                    botaoSom.setAttribute(
+                        "aria-label",
+                        "Ativar som"
+                    );
+
+                } else {
+
+                    botaoSom.textContent = "🔊";
+
+                    botaoSom.setAttribute(
+                        "aria-label",
+                        "Desativar som"
+                    );
+
+
+                    if (
+                        Number(
+                            controleVolume.value
+                        ) === 0
+                    ) {
+
+                        controleVolume.value = "80";
+
+                        video.volume = 0.8;
+
+                    }
+
+                }
+
+            }
+        );
+
+
+        /* CONTROLE DE VOLUME */
+
+        controleVolume.addEventListener(
+            "input",
+            function () {
+
+                const valor =
+                    Number(
+                        controleVolume.value
+                    );
+
+
+                video.volume =
+                    valor / 100;
+
+
+                video.muted =
+                    valor === 0;
+
+
+                botaoSom.textContent =
+                    valor === 0
+                        ? "🔇"
+                        : "🔊";
+
+            }
+        );
+
+
+        /* ========================================
+           MOSTRAR BOTÃO APÓS 15 SEGUNDOS
+           ======================================== */
+
+        window.setTimeout(
+            function () {
+
+                oferta.classList.add(
+                    "visivel"
+                );
+
+            },
+            TEMPO_PARA_MOSTRAR_BOTAO
+        );
+
     </script>
+
 </body>
 </html>
-```
